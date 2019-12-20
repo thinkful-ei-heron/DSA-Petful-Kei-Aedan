@@ -31,6 +31,16 @@ describe('App', () => {
         .get('/api/dogs')
         .expect(200, testdog);
     }); 
+    it('/GET /api/humans returns 200 and the first human if any', () => {
+      return supertest(app)
+        .get('/api/humans')
+        .expect(200)
+        .then(res => {
+          expect(res.body).to.be.an('Object');
+          expect(res.body).to.have.all.keys('stringQu');
+          expect(res.body.stringQu).to.equal('Aedan, Zee, Kei, Reif, Heesu, Shannon');
+        });
+    }); 
   });
 
   describe('DELETE endpoints', () => {
@@ -42,6 +52,11 @@ describe('App', () => {
     it('DELETE /api/dogs responds 204 if sucessful', () => {
       return supertest(app)
         .delete('/api/dogs')
+        .expect(204);
+    });
+    it('DELETE /api/humans responds 204 if sucessful', () => {
+      return supertest(app)
+        .delete('/api/humans')
         .expect(204);
     });
   });

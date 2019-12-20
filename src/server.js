@@ -109,7 +109,8 @@ app.delete('/api/dogs', (req, res) => {
 });
 
 app.get('/api/humans', (req, res) => {
-  return res.status(200).json(humanQu);
+  let string = humanQu.print();
+  return res.status(200).json({stringQu: string});
 });
 
 app.delete('/api/humans', (req, res) => {

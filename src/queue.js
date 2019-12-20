@@ -44,6 +44,20 @@ class queue {
         if (this.first === null) return null;
         console.log(`First: ${this.first.value}, Last: ${this.last.value}`);
     }
+
+    print() {
+        let current = this.first;
+        let str = '';
+        if(current !== null) {
+            while(current.next !== null) {
+                str += current.value + ', ';
+                current = current.next;
+            }
+            str += current.value;
+            return str;
+        }
+        return null;
+    }
 }
 
 
