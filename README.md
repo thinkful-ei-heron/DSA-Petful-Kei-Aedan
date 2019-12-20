@@ -1,78 +1,47 @@
-# Aedan's Enigma Server
+# Kei and Aedan's Enigma Server
 
-Live app: https://aedan-enigma.now.sh/
+Live app: https://github.com/thinkful-ei-heron/DSA-Petful-Server-Kei-Aedan
 
-Client GitHub: https://github.com/Just-A-Fool/Enigma-Client
+Client GitHub: 
 
 ## API
 _________
 Unprotected-Endpoints
 _____________________
 
-`POST /signup` Creates new user if sucessful in signup attempt. Requires body to be an object with 'username', 'password' and 'email' keys. Returns 201 if sucessful.
+`GET /cats` Retrieves the information of the first cat in the queue, the next cat to be adopted. Returns an imageURL, imageDescription, name, sex, age, breed, and story. 
 
-- Username may not be more than 20 characters. 
+`DELETE /cats` Dequeues the first cat in the adoption queue, meaning that this cat has been adopted! Hooray.
 
-- Password must be between 8-32 characters and have an Upper/Lower/Number.
+`GET /dogs` Retrieves the information of the first dog in the queue, the next cat to be adopted. Returns an imageURL, imageDescription, name, sex, age, breed, and story. 
 
-- Email must be less than 40 characters and have an @ in it. 
+`DELETE /dogs` Dequeues the first dog in the adoption queue, meaning that this dog has been adopted! Hooray. 
 
-`POST /login` Logs in a user if supplied with correct information. Requires body to be an object with 'username' and 'password' keys. Returns 200 with JWT if sucessful. 
+`GET /humans` Retrieves the entire queue of people who are in line ot adopt a pet. 
 
+`DELETE /humans` Dequeues the first human in the adoption queue, meaning this human has adopted their pets and
+is going home. 
+
+`POST /humans` Enqueues the human into the adoption queue. 
 _____
-
-Protected-Endpoints
-___________________
-
-`GET /cipher` Returns all saved ciphers for a user who is 'logged in'. Returns 200 if sucessful and an array of objects in the shape of: 
-
-    [{
-        id: 1,
-        data: (JSON string of cipher data.)
-    }]
-
-`POST /cipher` Saves a new cipher for a user who is 'logged in'. Returns 201 if sucessful. Requires the body to be an object in the shape of:
-
-    {
-        rotor1: {
-            which: 'I',
-            shift: 0
-        }
-        rotor2: {
-            which: 'II',
-            shift: 0
-        }
-        rotor3: {
-            which: 'III',
-            shift: 0
-        }
-        plug: {
-            A: 'B',
-            C: 'D'
-        }
-    }
-
-- "Which" values must be one of the following: I, II, III, IV, V.
-
-- "Shift" values must be a number between 0-25.
-
-- "Plug" key/value pairs must only be capital letters.
-
-`DELETE /cipher/:id` Deletes a specified cipher if the user is logged in and is allowed access to the cipher. Returns 204 if sucessful.
-
-___________
-Errors
-______
-
-- `All Errors` will return with an error status and an object with a message key. The error message is written there. 
-
-______
-
 
 ## Summary
 
-This server allows for the saving/retrieval of Enigma settings called ciphers. Users are able to sign-up/log in and use this service. The data is stored in a PostgreSQL database. 
+This server allows for the storage and retrieval of users who are interested in adopting pets. The server
+also stores information on pets that are yet to be adopted.
 
 ## Technology Used
 
 Javascript, PostgreSQL, Express, Mocha, Chai
+
+<b>Back-end:<b>
+<ul>
+  <li>Node</li>
+  <li>Express</li>
+  <li>Mocha</li>
+  <li>Chai</li>
+</ul>
+
+## Notes
+
+This server continually kicks users from the front of the queue to the back of the queue after 5 seconds. 
