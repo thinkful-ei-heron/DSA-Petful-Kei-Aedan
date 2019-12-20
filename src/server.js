@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const { NODE_ENV } = require('./config');
 const app = express();
+const quClass = require('./queue');
 
 const cats = [
   {
@@ -63,6 +64,13 @@ const dogs = [
     story: 'Owner Passed away'
   }
 ];
+
+let dogQu = new quClass.queue();
+let catQu = new quClass.queue();
+let humanQu = new quClass.queue();
+
+cats.forEach(cat => catQu.enqueue(cat));
+dogs.forEach(dog => dogQu.enqueue(dog));
 
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
