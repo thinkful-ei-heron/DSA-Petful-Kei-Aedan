@@ -72,6 +72,13 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
+humanQu.enqueue('Aedan');
+humanQu.enqueue('Zee');
+humanQu.enqueue('Kei');
+humanQu.enqueue('Reif');
+humanQu.enqueue('Heesu');
+humanQu.enqueue('Shannon');
+
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
@@ -98,6 +105,15 @@ app.get('/api/dogs', (req, res) => {
 
 app.delete('/api/dogs', (req, res) => {
   dogQu.dequeue();
+  return res.status(204).end();
+});
+
+app.get('/api/humans', (req, res) => {
+  return res.status(200).json(humanQu);
+});
+
+app.delete('/api/humans', (req, res) => {
+  humanQu.dequeue();
   return res.status(204).end();
 });
 
