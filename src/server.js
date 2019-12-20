@@ -82,25 +82,23 @@ app.use(helmet());
 app.use(cors());
 
 app.get('/api/cats', (req, res) => {
-  let response = cats[0];
+  let response = catQu.peek();
   return res.status(200).json(response);
 });
 
 app.delete('/api/cats', (req, res) => {
-  let adopted = cats[0];
-  cats.splice(0, 1);
-  return res.status(204).json(adopted);
+  catQu.dequeue();
+  return res.status(204).end();
 });
 
 app.get('/api/dogs', (req, res) => {
-  let response = dogs[0];
+  let response = dogQu.peek();
   return res.status(200).json(response);
 });
 
 app.delete('/api/dogs', (req, res) => {
-  let adopted = dogs[0];
-  cats.splice(0, 1);
-  return res.status(204).json(adopted);
+  dogQu.dequeue();
+  return res.status(204).end();
 });
 
 // Catch-all 404
