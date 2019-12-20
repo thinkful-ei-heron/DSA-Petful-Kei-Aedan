@@ -63,7 +63,6 @@ const dogs = [
     story: 'Owner Passed away'
   }
 ];
-// const DOGS = require('./dogs.json');
 
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
@@ -75,7 +74,7 @@ app.use(helmet());
 app.use(cors());
 
 app.get('/api/cats', (req, res) => {
-  let response = cats;
+  let response = cats[0];
   return res.status(200).json(response);
 });
 
@@ -86,7 +85,7 @@ app.delete('/api/cats', (req, res) => {
 });
 
 app.get('/api/dogs', (req, res) => {
-  let response = dogs;
+  let response = dogs[0];
   return res.status(200).json(response);
 });
 
