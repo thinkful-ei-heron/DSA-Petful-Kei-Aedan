@@ -18,7 +18,7 @@ const cats = [
     story: 'Thrown on the street'
   },
   {
-    imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+    imageURL:'https://cdn.vox-cdn.com/thumbor/2XTYqiTtJ-8H8k46jALMh9ZMfzU=/0x0:1548x1024/1200x800/filters:focal(693x458:939x704)/cdn.vox-cdn.com/uploads/chorus_image/image/65936299/cats4.0.jpg', 
     imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
     name: 'Fluffy 2',
     sex: 'Female',
@@ -26,7 +26,7 @@ const cats = [
     breed: 'Bengal',
     story: 'Thrown on the street'
   },  {
-    imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+    imageURL:'https://img.cinemablend.com/filter:scale/quill/a/e/8/e/5/6/ae8e561e380abdf9cd51fca093467f3b4ee52162.jpg?mw=600', 
     imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
     name: 'Fluffy 3',
     sex: 'Female',
