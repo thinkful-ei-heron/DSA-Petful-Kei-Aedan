@@ -3,7 +3,7 @@ const cors = require('cors');
 //aded helmet, morgan
 const helmet = require('helmet');
 const morgan = require('morgan');
-const { NODE_ENV } = require('./config');
+const { NODE_ENV, PORT} = require('./config');
 const app = express();
 const quClass = require('./queue');
 const jsonParser = express.json();
@@ -147,8 +147,8 @@ app.use(function (err, req, res, next) {
   });
 });
 
-app.listen(8080,()=>{
-  console.log('Serving on 8080');
+app.listen(PORT,()=>{
+  console.log(`Serving on ${PORT}`);
 });
 
 module.exports = app;
