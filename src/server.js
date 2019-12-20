@@ -73,12 +73,18 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
-// humanQu.enqueue('Aedan');
-// humanQu.enqueue('Zee');
-// humanQu.enqueue('Kei');
-// humanQu.enqueue('Reif');
-// humanQu.enqueue('Heesu');
-// humanQu.enqueue('Shannon');
+humanQu.enqueue('Aedan');
+humanQu.enqueue('Kei');
+
+
+function cycle() {
+  humanQu.enqueue(humanQu.dequeue());
+  setTimeout(() => {
+    cycle();
+  }, (5000));
+}
+
+cycle();
 
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
