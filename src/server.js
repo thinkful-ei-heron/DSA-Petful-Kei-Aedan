@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const { NODE_ENV } = require('./config');
 const app = express();
 const quClass = require('./queue');
+const jsonParser = express.json();
 
 const cats = [
   {
@@ -72,12 +73,12 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
-humanQu.enqueue('Aedan');
-humanQu.enqueue('Zee');
-humanQu.enqueue('Kei');
-humanQu.enqueue('Reif');
-humanQu.enqueue('Heesu');
-humanQu.enqueue('Shannon');
+// humanQu.enqueue('Aedan');
+// humanQu.enqueue('Zee');
+// humanQu.enqueue('Kei');
+// humanQu.enqueue('Reif');
+// humanQu.enqueue('Heesu');
+// humanQu.enqueue('Shannon');
 
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
@@ -116,6 +117,11 @@ app.get('/api/humans', (req, res) => {
 app.delete('/api/humans', (req, res) => {
   humanQu.dequeue();
   return res.status(204).end();
+});
+
+app.post('/api/humans', jsonParser, (req, res) => { 
+  humanQu.enqueue(req.body.name);
+  return res.status(201).end();
 });
 
 // Catch-all 404
