@@ -72,6 +72,13 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
+humanQu.enqueue('Aedan');
+humanQu.enqueue('Zee');
+humanQu.enqueue('Kei');
+humanQu.enqueue('Reif');
+humanQu.enqueue('Heesu');
+humanQu.enqueue('Shannon');
+
 //added morganoption
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
@@ -101,6 +108,15 @@ app.delete('/api/dogs', (req, res) => {
   let adopted = dogs[0];
   cats.splice(0, 1);
   return res.status(204).json(adopted);
+});
+
+app.get('/api/humans', (req, res) => {
+  return res.status(200).json(humanQu);
+});
+
+app.delete('/api/humans', (req, res) => {
+  humanQu.dequeue();
+  return res.status(204).end();
 });
 
 // Catch-all 404
