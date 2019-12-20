@@ -1,8 +1,9 @@
 # Kei and Aedan's Enigma Server
 
-Live app: https://github.com/thinkful-ei-heron/DSA-Petful-Server-Kei-Aedan
 
-Client GitHub: 
+Live app: https://petful-aedan-kei.now.sh/
+
+Client GitHub: https://github.com/thinkful-ei-heron/DSA-Petful-Client-Kei-Aedan
 
 ## API
 _________
