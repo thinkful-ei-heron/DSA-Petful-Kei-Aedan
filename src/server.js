@@ -7,17 +7,10 @@ const { NODE_ENV, PORT} = require('./config');
 const app = express();
 const quClass = require('./queue');
 const jsonParser = express.json();
-const dog1 = require('../img/dog1.jpg');
-const dog2 = require('../img/dog2.jpg');
-const dog3 = require('../img/dog3.jpg');
-const cat1 = require('../img/cat1.jpg');
-const cat2 = require('../img/cat2.jpg');
-const cat3 = require('../img/cat3.jpg');
-
 
 const cats = [
   {
-    imageURL: cat1, 
+    imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
     imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
     name: 'Fluffy',
     sex: 'Female',
@@ -26,16 +19,15 @@ const cats = [
     story: 'Thrown on the street'
   },
   {
-    imageURL: cat2,
+    imageURL:'https://cdn.vox-cdn.com/thumbor/2XTYqiTtJ-8H8k46jALMh9ZMfzU=/0x0:1548x1024/1200x800/filters:focal(693x458:939x704)/cdn.vox-cdn.com/uploads/chorus_image/image/65936299/cats4.0.jpg', 
     imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
     name: 'Fluffy 2',
     sex: 'Female',
     age: 2,
     breed: 'Bengal',
     story: 'Thrown on the street'
-  },  
-  {
-    imageURL: cat3,
+  },  {
+    imageURL:'https://img.cinemablend.com/filter:scale/quill/a/e/8/e/5/6/ae8e561e380abdf9cd51fca093467f3b4ee52162.jpg?mw=600', 
     imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
     name: 'Fluffy 3',
     sex: 'Female',
@@ -46,7 +38,7 @@ const cats = [
 ];
 const dogs = [
   {
-    imageURL: dog1,
+    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
     imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
     name: 'Zeus',
     sex: 'Male',
@@ -55,7 +47,7 @@ const dogs = [
     story: 'Owner Passed away'
   },
   {
-    imageURL: dog2,
+    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
     imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
     name: 'Zeus 2',
     sex: 'Male',
@@ -64,7 +56,7 @@ const dogs = [
     story: 'Owner Passed away'
   },
   {
-    imageURL: dog3,
+    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
     imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
     name: 'Zeus 3',
     sex: 'Male',
