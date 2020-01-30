@@ -72,9 +72,8 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
-humanQu.enqueue('Aedan');
-humanQu.enqueue('Kei');
-humanQu.enqueue('Josh');
+humanQu.enqueue('Kaladin');
+humanQu.enqueue('Shallan');
 
 function cycle() {
   const tempHuman = humanQu.dequeue();
@@ -101,8 +100,8 @@ app.get('/api/cats', (req, res) => {
 });
 
 app.delete('/api/cats', (req, res) => {
-  catQu.dequeue();
-  return res.status(204).end();
+  const cat = catQu.dequeue();
+  return res.status(204).json({cat});
 });
 
 app.get('/api/dogs', (req, res) => {
@@ -111,8 +110,8 @@ app.get('/api/dogs', (req, res) => {
 });
 
 app.delete('/api/dogs', (req, res) => {
-  dogQu.dequeue();
-  return res.status(204).end();
+  const dog = dogQu.dequeue();
+  return res.status(204).json({dog});
 });
 
 app.get('/api/humans', (req, res) => {
