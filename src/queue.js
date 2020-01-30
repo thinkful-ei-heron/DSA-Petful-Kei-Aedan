@@ -39,21 +39,20 @@ class queue {
     isEmpty() {
         return this.first === null;
     }
-    
-    display() {
-        if (this.first === null) return null;
-        console.log(`First: ${this.first.value}, Last: ${this.last.value}`);
-    }
 
     print() {
         let current = this.first;
         let str = '';
         if(current !== null) {
             while(current.next !== null) {
-                str += current.value + ', ';
+                if (str === ''){
+                    str = current.value;
+                } else {
+                    str = str + ', ' + current.value;
+                }
                 current = current.next;
             }
-            str += current.value;
+            str = str + ', ' + current.value;
             return str;
         }
         return null;
@@ -61,35 +60,6 @@ class queue {
 }
 
 
-const pairOff = function (str, mQ, fQ) {
-    if (str.charAt(0) === 'M') {
-        mQ.enqueue(str);
-    } else {
-        fQ.enqueue(str);
-    }
-
-    if (!mQ.isEmpty() && !fQ.isEmpty()) {
-        console.log(`F dancer is ${fQ.dequeue()}, and the M dancer is ${mQ.dequeue()}`);
-    }
-};
-
-// const banker = function(qu) {
-//     while(!isEmpty(qu)) {
-//         console.log(peek(qu) + ' is talking with the banker.');
-//         let d4 = Math.floor(Math.random() * 4);
-//         if(d4 === 0) {
-//             console.log('But they failed to fill out proper paperwork and have to go to the back of the line.');
-//             qu.enqueue(qu.dequeue());
-//         }else  {
-//             console.log(peek(qu) + ' left the bank.');
-//             qu.dequeue();
-//         }
-//         console.log(' '); 
-//     }
-// };
-
-
 module.exports = {
     queue,
-    pairOff,
 }

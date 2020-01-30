@@ -69,16 +69,16 @@ const dogs = [
 let dogQu = new quClass.queue();
 let catQu = new quClass.queue();
 let humanQu = new quClass.queue();
-
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
 humanQu.enqueue('Aedan');
 humanQu.enqueue('Kei');
-
+humanQu.enqueue('Josh');
 
 function cycle() {
-  humanQu.enqueue(humanQu.dequeue());
+  const tempHuman = humanQu.dequeue();
+  humanQu.enqueue(tempHuman);
   setTimeout(() => {
     cycle();
   }, (5000));
@@ -148,7 +148,6 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(PORT,()=>{
-  console.log(`Serving on ${PORT}`);
 });
 
 module.exports = app;
