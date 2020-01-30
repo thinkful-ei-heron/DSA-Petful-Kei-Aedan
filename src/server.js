@@ -73,7 +73,7 @@ cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
 humanQu.enqueue('Kaladin');
-humanQu.enqueue('Shallan');
+humanQu.enqueue('Dalinar');
 
 function cycle() {
   const tempHuman = humanQu.dequeue();
