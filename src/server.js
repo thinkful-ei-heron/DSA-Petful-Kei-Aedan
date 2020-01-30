@@ -47,7 +47,7 @@ const dogs = [
     story: 'Owner Passed away'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+    imageURL: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1094874726.png?crop=0.542xw:0.814xh;0.0472xw,0.127xh&resize=640:*',
     imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
     name: 'Zog 2',
     sex: 'Male',
@@ -56,7 +56,7 @@ const dogs = [
     story: 'Owner Passed away'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+    imageURL: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2016/05/19091354/Weimaraner-puppy-outdoors-with-bright-blue-eyes.20190813165758508-1.jpg',
     imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
     name: 'Zeus 3',
     sex: 'Male',
