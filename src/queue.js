@@ -31,6 +31,7 @@ class queue {
         }
 
     }
+
     peek() {
         if (this.first === null) return null;
         return this.first.value;
@@ -56,6 +57,16 @@ class queue {
             return str;
         }
         return null;
+    }
+
+    toArray() {
+        let arr = [];
+        let current = this.first;
+        while(current!== null) {
+            arr.push(current);
+            current = current.next;
+        }
+        return arr;
     }
 }
 

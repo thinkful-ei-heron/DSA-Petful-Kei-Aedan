@@ -7,6 +7,7 @@ const { NODE_ENV, PORT} = require('./config');
 const app = express();
 const quClass = require('./queue');
 const jsonParser = express.json();
+const uuid = require('uuid/v4');
 
 const cats = [
   {
@@ -72,8 +73,8 @@ let humanQu = new quClass.queue();
 cats.forEach(cat => catQu.enqueue(cat));
 dogs.forEach(dog => dogQu.enqueue(dog));
 
-humanQu.enqueue('Kaladin');
-humanQu.enqueue('Dalinar');
+humanQu.enqueue({name: 'Kaladin', id: uuid()});
+humanQu.enqueue({name: 'Dalinar', id: uuid()});
 
 function cycle() {
   const tempHuman = humanQu.dequeue();
@@ -115,8 +116,8 @@ app.delete('/api/dogs', (req, res) => {
 });
 
 app.get('/api/humans', (req, res) => {
-  let string = humanQu.print();
-  return res.status(200).json({stringQu: string});
+  const arr = humanQu.toArray();
+  return res.status(200).json(arr);
 });
 
 app.delete('/api/humans', (req, res) => {
@@ -125,7 +126,7 @@ app.delete('/api/humans', (req, res) => {
 });
 
 app.post('/api/humans', jsonParser, (req, res) => { 
-  humanQu.enqueue(req.body.name);
+  humanQu.enqueue({name: req.body.name, id: req.body.id});
   return res.status(201).end();
 });
 
