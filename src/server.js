@@ -101,7 +101,7 @@ app.get('/api/cats', (req, res) => {
 
 app.delete('/api/cats', (req, res) => {
   const cat = catQu.dequeue();
-  return res.status(204).json({cat});
+  return res.status(204).json(cat);
 });
 
 app.get('/api/dogs', (req, res) => {
@@ -111,7 +111,7 @@ app.get('/api/dogs', (req, res) => {
 
 app.delete('/api/dogs', (req, res) => {
   const dog = dogQu.dequeue();
-  return res.status(204).json({dog});
+  return res.status(204).json(dog);
 });
 
 app.get('/api/humans', (req, res) => {
