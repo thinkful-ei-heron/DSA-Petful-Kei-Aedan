@@ -7,12 +7,12 @@ const { NODE_ENV, PORT} = require('./config');
 const app = express();
 const quClass = require('./queue');
 const jsonParser = express.json();
-import dog1 from './img/dog1';
-import dog2 from './img/dog2';
-import dog3 from './img/dog3';
-import cat1 from './img/cat1';
-import cat2 from './img/cat2';
-import cat3 from './img/cat3';
+const dog1 = require('./img/dog1');
+const dog2 = require('./img/dog2');
+const dog3 = require('./img/dog3');
+const cat1 = require('./img/cat1');
+const cat2 = require('./img/cat2');
+const cat3 = require('./img/cat3');
 
 
 const cats = [
