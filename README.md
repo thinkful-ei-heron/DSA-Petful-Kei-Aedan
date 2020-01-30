@@ -1,4 +1,4 @@
-# Kei and Aedan's Enigma Server
+# Kei and Aedan's Petful Server
 
 Live app: https://github.com/thinkful-ei-heron/DSA-Petful-Server-Kei-Aedan
 
